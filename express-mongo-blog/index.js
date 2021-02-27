@@ -1,9 +1,11 @@
 const path = require('path');
 const express = require('express');
-const expressEdge = require('express-edge');
-//Other way is const {engine} = require('express-edge'); and then use it
+const expressEdge = require('express-edge'); //Other way is const {engine} = require('express-edge'); and then use it
+const mongoose = require('mongoose');
 
 const app = new express();
+mongoose.connect('mongodb://localhost/express-mongo-blog');
+
 app.use(express.static('public'));
 
 app.use(expressEdge.engine);
