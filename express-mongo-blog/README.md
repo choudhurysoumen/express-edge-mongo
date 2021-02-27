@@ -23,3 +23,10 @@ List all activities performed for each session.
 6. Use this layout and sections to rebuild all edge files
 7. index.js: serve edge template files for different routes.
 8. Delete unused /pages folder
+
+# s4-introduce-mongoose
+1. Install MongoDB and Robo 3T. MongoDB Compass is also very useful.
+2. npm install mongoose --save
+3. index.js: mongoose.connect('mongodb://localhost/express-mongo-blog');
+4. Create schema /database/models/Post.js
+5. Create testdb.js to test database connection is working.
