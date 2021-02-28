@@ -47,3 +47,9 @@ List all activities performed for each session.
  4. index.js: pass posts through render function
  5. index.edge: remove all post-preview blocks and list passed posts data
  6. index.edge: Iterate over posts and display dynamic content in post-preview
+
+ # s7-dynamic-route-link-for-post
+ 1. index.js: Update /post route to /post/:id
+ 2. Retrive post using findById(req.params.id) from Database and pass to Post page
+ 3. post.edge: display post.title to verify post information is passed correctly
+ 4. index.edge: link Post page by updating href=post.html href=/post/{{post._id}}
