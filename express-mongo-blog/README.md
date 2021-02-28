@@ -53,3 +53,10 @@ List all activities performed for each session.
  2. Retrive post using findById(req.params.id) from Database and pass to Post page
  3. post.edge: display post.title to verify post information is passed correctly
  4. index.edge: link Post page by updating href=post.html href=/post/{{post._id}}
+
+ # s8-update-post-schema-adjust-ui-pages
+ 1. Post.js: Update schema to support new fields
+ 2. Delete database using Robo 3T and npm start
+ 3. new-post.edge: Add new input controls for fields
+ 4. Use new Post fields to display on index.edge and post.edge screen
+ 5. Rename description field of Post schema to subheading and refactor respective pages
