@@ -40,3 +40,10 @@ List all activities performed for each session.
 6. Add body-parser: npm install body-parser
 7. New Post information is available in index.js: inside /post/new route handler method verify req.body
  
+ # s6-save-post-in-mongo
+ 1. index.js: Use Post model to save record in mongodb
+ 2. Verify the entered data vs. data persisted in mongo database, use previously installed Robo 3T client.
+ 3. List entered data in index.js: introduce async await to read Posts from database. Verify server log to verify Post list.
+ 4. index.js: pass posts through render function
+ 5. index.edge: remove all post-preview blocks and list passed posts data
+ 6. index.edge: Iterate over posts and display dynamic content in post-preview
