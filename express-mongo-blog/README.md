@@ -30,3 +30,13 @@ List all activities performed for each session.
 3. index.js: mongoose.connect('mongodb://localhost/express-mongo-blog');
 4. Create schema /database/models/Post.js
 5. Create testdb.js to test database connection is working.
+
+# s5-create-post-form
+1. Create new-post.edge file with dummy text
+2. index.js: setup /post/new route. Add the route in app.edge
+3. Fix app.edge resource path problem by appending / to make it relative path
+4. new-post.edge: Update file add form controls
+5. index.js: set up route /post/store for post information submission. new-post.edge: add form action=/post/store and method=POST
+6. Add body-parser: npm install body-parser
+7. New Post information is available in index.js: inside /post/new route handler method verify req.body
+ 
