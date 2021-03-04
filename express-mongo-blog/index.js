@@ -3,9 +3,13 @@ const express = require('express');
 const expressEdge = require('express-edge'); //Other way is const {engine} = require('express-edge'); and then use it
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Post = require('./database/models/Post');
 const { log } = require('console');
-const aboutCtrl = require('./controller/about')
+const aboutCtrl = require('./controller/about');
+const newPostCtrl = require('./controller/new-post');
+const contactCtrl = require('./controller/contact');
+const homeCtrl = require('./controller/home');
+const storePostCtrl = require('./controller/store-post');
+const postCtrl = require('./controller/post');
 
 const app = new express();
 mongoose.connect('mongodb://localhost/express-mongo-blog');
@@ -30,36 +34,17 @@ const postValidator = (req, res, next) => {
 app.use('/post/store', postValidator);
 
 
-app.get('/', async (req, res) => {
-    const posts = await Post.find({});
-    console.log(posts);
-    res.render('index', {
-        posts
-    });
-});
+app.get('/', homeCtrl);
 
 app.get('/about', aboutCtrl);
 
-app.get('/post/new', (req, res) => {
-    res.render('new-post');
-})
+app.get('/post/new', newPostCtrl)
 
-app.post('/post/store', (req, res) => {
-    Post.create(req.body, (req, post) => {
-         res.redirect('/');
-    })
-});
+app.post('/post/store', storePostCtrl);
 
-app.get('/post/:id', async (req, res) => {
-    const post = await Post.findById(req.params.id)
-    res.render('post', {
-        post
-    });
-});
+app.get('/post/:id', postCtrl);
 
-app.get('/contact', (req, res) => {
-    res.render('contact');
-});
+app.get('/contact', contactCtrl);
 
 app.listen(4000, () => {
     console.log(`Server started on port 4000`);
