@@ -70,3 +70,4 @@ List all activities performed for each session.
 
  # s10-user-registration
  1. User.js: Create user model
+ 2. Registration UI and controler created: register.edge, register.js
