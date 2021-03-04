@@ -17,6 +17,14 @@ app.set('views', `${__dirname}/views`);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+const customMiddleware = (req, res, next) => {
+    console.log("I am middleware");
+    next();
+}
+
+app.use(customMiddleware);
+
+
 app.get('/', async (req, res) => {
     const posts = await Post.find({});
     console.log(posts);

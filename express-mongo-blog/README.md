@@ -60,3 +60,6 @@ List all activities performed for each session.
  3. new-post.edge: Add new input controls for fields
  4. Use new Post fields to display on index.edge and post.edge screen
  5. Rename description field of Post schema to subheading and refactor respective pages
+
+ # s9-middleware-and-refactoring-towards-mvc
+ 1. index.js: create custom middleware and understand the execution sequence
