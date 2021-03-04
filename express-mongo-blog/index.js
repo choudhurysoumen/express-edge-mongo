@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Post = require('./database/models/Post');
 const { log } = require('console');
-
+const aboutCtrl = require('./controller/about')
 
 const app = new express();
 mongoose.connect('mongodb://localhost/express-mongo-blog');
@@ -38,9 +38,7 @@ app.get('/', async (req, res) => {
     });
 });
 
-app.get('/about', (req, res) => {
-    res.render('about');
-});
+app.get('/about', aboutCtrl);
 
 app.get('/post/new', (req, res) => {
     res.render('new-post');
