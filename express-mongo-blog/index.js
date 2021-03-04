@@ -4,6 +4,7 @@ const expressEdge = require('express-edge'); //Other way is const {engine} = req
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Post = require('./database/models/Post');
+const { log } = require('console');
 
 
 const app = new express();
@@ -17,12 +18,16 @@ app.set('views', `${__dirname}/views`);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-const customMiddleware = (req, res, next) => {
-    console.log("I am middleware");
+const postValidator = (req, res, next) => {
+    const data = req.body;
+    if(!data.createdBy || !data.title || !data.subtitle || !data.content) {
+        console.log("Invalid form");
+        return  res.redirect('/post/new');
+    }
     next();
 }
 
-app.use(customMiddleware);
+app.use('/post/store', postValidator);
 
 
 app.get('/', async (req, res) => {

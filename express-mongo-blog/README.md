@@ -63,3 +63,4 @@ List all activities performed for each session.
 
  # s9-middleware-and-refactoring-towards-mvc
  1. index.js: create custom middleware and understand the execution sequence
+ 2. index.js: add postValidator for '/post/store'
