@@ -66,3 +66,4 @@ List all activities performed for each session.
  2. index.js: add postValidator for '/post/store'
  3. Refactor to MVC - introduce controller: add controller folder and export routes content
  4. Export code to appropritae controllers 
+ 5. Refactor postValidator middleware

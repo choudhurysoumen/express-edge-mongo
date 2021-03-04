@@ -10,6 +10,7 @@ const contactCtrl = require('./controller/contact');
 const homeCtrl = require('./controller/home');
 const storePostCtrl = require('./controller/store-post');
 const postCtrl = require('./controller/post');
+const postValidator = require('./middleware/store-post');
 
 const app = new express();
 mongoose.connect('mongodb://localhost/express-mongo-blog');
@@ -22,18 +23,10 @@ app.set('views', `${__dirname}/views`);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-const postValidator = (req, res, next) => {
-    const data = req.body;
-    if(!data.createdBy || !data.title || !data.subtitle || !data.content) {
-        console.log("Invalid form");
-        return  res.redirect('/post/new');
-    }
-    next();
-}
-
+//Custom Middleware
 app.use('/post/store', postValidator);
 
-
+//Route
 app.get('/', homeCtrl);
 
 app.get('/about', aboutCtrl);
@@ -47,5 +40,5 @@ app.get('/post/:id', postCtrl);
 app.get('/contact', contactCtrl);
 
 app.listen(4000, () => {
-    console.log(`Server started on port 4000`);
+    log(`Server started on port 4000`);
 });
