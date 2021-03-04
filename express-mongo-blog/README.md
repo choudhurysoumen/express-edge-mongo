@@ -67,3 +67,6 @@ List all activities performed for each session.
  3. Refactor to MVC - introduce controller: add controller folder and export routes content
  4. Export code to appropritae controllers 
  5. Refactor postValidator middleware
+
+ # s10-user-registration
+ 1. User.js: Create user model
