@@ -72,3 +72,8 @@ List all activities performed for each session.
  1. User.js: Create user model
  2. Registration UI and controller created: register.edge, register.js
  3. store-user.js: Controller to handle user save operation to database. Map correct route in index.js
+
+ # s11-mongoose-hooks-and-validation
+ 1. User.js: create a 'pre' save hook - UserSchema.pre
+ 2. npm i bcrypt --save 
+ 3. Use bcrypt to hash password: bcrypt.hash()
