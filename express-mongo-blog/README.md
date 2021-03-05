@@ -82,3 +82,4 @@ List all activities performed for each session.
  # feature/s12-user-login
  1. Create login.edge and login.js controller. Update index.js and add route
  2. Add route for posting user credentials and create userlogin controller
+ 3. userlogin.js: pull user by emailid and validate user credential using bcrypt
