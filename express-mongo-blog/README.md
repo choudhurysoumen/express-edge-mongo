@@ -78,3 +78,8 @@ List all activities performed for each session.
  2. npm i bcrypt --save 
  3. Use bcrypt to hash password: bcrypt.hash()
  4. User.js: add validation by updating schema configuration. Try to save invalid user and check the error at console.
+
+ # feature/s12-user-login
+ 1. Create login.edge and login.js controller. Update index.js and add route
+ 2. Add route for posting user credentials and create userlogin controller
+ 3. userlogin.js: pull user by emailid and validate user credential using bcrypt

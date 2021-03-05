@@ -13,6 +13,8 @@ const postCtrl = require('./controller/post');
 const postValidator = require('./middleware/store-post');
 const registerCtrl = require('./controller/register');
 const storeUserCtrl = require('./controller/store-user');
+const loginCtrl = require('./controller/login');
+const userLoginCtrl = require('./controller/userlogin')
 
 const app = new express();
 mongoose.connect('mongodb://localhost/express-mongo-blog');
@@ -44,6 +46,10 @@ app.get('/contact', contactCtrl);
 app.get('/user/register', registerCtrl);
 
 app.post('/user/store', storeUserCtrl);
+
+app.get('/user/login', loginCtrl);
+
+app.post('/auth/login', userLoginCtrl);
 
 app.listen(4000, () => {
     log(`Server started on port 4000`);
